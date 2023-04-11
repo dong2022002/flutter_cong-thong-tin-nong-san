@@ -1,0 +1,15 @@
+[10:01:04 PM]: Spawning D:\flutter\flutter\bin\flutter.bat with args ["run","--machine","--start-paused","-d","windows","--devtools-server-address","http://127.0.0.1:9100/","--target","lib\\main.dart"]
+[10:01:04 PM]: ..  in D:\workspace\flutter\cttns\cttns
+[10:01:04 PM]: ..  with {"toolEnv":{"FLUTTER_HOST":"VSCode","PUB_ENVIRONMENT":"vscode.dart-code"}}
+[10:01:04 PM]: PID: 16992
+[10:01:05 PM]: <== [{"event":"daemon.connected","params":{"version":"0.6.1","pid":12696}}]
+[10:01:05 PM]: <== [{"event":"app.start","params":{"appId":"0af9106c-9625-4e69-a01b-23f5c085e6ad","deviceId":"windows","directory":"D:\\workspace\\flutter\\cttns\\cttns","supportsRestart":true,"launchMode":"run"}}]
+[10:01:05 PM]: <== Launching lib\main.dart on Windows in debug mode...
+[10:01:05 PM]: <== [{"event":"app.progress","params":{"appId":"0af9106c-9625-4e69-a01b-23f5c085e6ad","id":"0","progressId":null,"message":"Building Windows application...","finished":false}}]
+[10:01:33 PM]: <== [{"event":"app.progress","params":{"appId":"0af9106c-9625-4e69-a01b-23f5c085e6ad","id":"0","progressId":null,"finished":true}}]
+[10:01:34 PM]: <== [{"event":"app.debugPort","params":{"appId":"0af9106c-9625-4e69-a01b-23f5c085e6ad","port":58521,"wsUri":"ws://127.0.0.1:58521/EbO-pqIJWUY=/ws","baseUri":"file:///C:/Users/TRANDI~1/AppData/Local/Temp/cttnsdfeaa937/cttns/"}}]
+[10:01:34 PM]: <== [{"event":"app.progress","params":{"appId":"0af9106c-9625-4e69-a01b-23f5c085e6ad","id":"1","progressId":null,"message":"Syncing files to device Windows...","finished":false}}]
+[10:01:34 PM]: <== [{"event":"app.progress","params":{"appId":"0af9106c-9625-4e69-a01b-23f5c085e6ad","id":"1","progressId":null,"finished":true}}]
+[10:01:34 PM]: <== [{"event":"app.started","params":{"appId":"0af9106c-9625-4e69-a01b-23f5c085e6ad"}}]
+[10:01:38 PM]: <== Lost connection to device.
+[10:01:38 PM]: <== [{"event":"app.stop","params":{"appId":"0af9106c-9625-4e69-a01b-23f5c085e6ad"}}]
