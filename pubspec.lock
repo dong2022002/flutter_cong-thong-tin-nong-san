@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
+  circular_bottom_navigation:
+    dependency: "direct main"
+    description:
+      name: circular_bottom_navigation
+      sha256: "10889d8cf815f22d4b648588946326a6b4a2de462276e5be3b3f2ba5d8aa8960"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.0"
   clock:
     dependency: transitive
     description:
@@ -41,6 +49,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
+  crypto:
+    dependency: transitive
+    description:
+      name: crypto
+      sha256: aa274aa7774f8964e4f4f38cc994db7b6158dd36e9187aaceaddc994b35c6c67
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.2"
   fake_async:
     dependency: transitive
     description:
@@ -62,11 +78,59 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  flutter_mobx:
+    dependency: "direct main"
+    description:
+      name: flutter_mobx
+      sha256: "0da4add0016387a7bf309a0d0c41d36c6b3ae25ed7a176409267f166509e723e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.6+5"
+  flutter_modular:
+    dependency: "direct main"
+    description:
+      name: flutter_modular
+      sha256: "061f0bcc8f8c438d4c82f4ff70a9e61f109961c92b4e1eaf1bbfab75f577fe0e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.3"
+  flutter_modular_annotations:
+    dependency: transitive
+    description:
+      name: flutter_modular_annotations
+      sha256: "65971655bdd30816a6a66651c801f4ceba6c8ba265f0866cc51ad038332c9a71"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_triple:
+    dependency: "direct main"
+    description:
+      name: flutter_triple
+      sha256: "0ac957e64d818f69a45d01a24f3d7465cd8dda9142718d210d63a7890eb2a550"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      sha256: "6aa2946395183537c8b880962d935877325d6a09a2867c3970c05c0fed6ac482"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.13.5"
+  http_parser:
+    dependency: transitive
+    description:
+      name: http_parser
+      sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.2"
   js:
     dependency: transitive
     description:
@@ -107,6 +171,38 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.0"
+  mobx:
+    dependency: "direct main"
+    description:
+      name: mobx
+      sha256: "6738620307a424d2c9ad8b873f4dce391c44e9135eb4e75668ac8202fec7a9b8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.4"
+  mobx_triple:
+    dependency: "direct main"
+    description:
+      name: mobx_triple
+      sha256: "59f54884bbfbbe2d727df7e1fd2eb61dd2bf5f2eee6541eb35a1c4c00acaad5a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
+  modular_core:
+    dependency: transitive
+    description:
+      name: modular_core
+      sha256: "84cfe65d2ab15b0265a5bdb07a7a0408b06f8d92fee6fb94a3c85e97cbc2d6af"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.3+1"
+  modular_interfaces:
+    dependency: transitive
+    description:
+      name: modular_interfaces
+      sha256: "89db18038048d63de80871189ddc52363814e8181615459e5d88ed0a921acc1f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.2"
   path:
     dependency: transitive
     description:
@@ -115,6 +211,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.2"
+  rx_notifier:
+    dependency: transitive
+    description:
+      name: rx_notifier
+      sha256: "573b1593a5d6ea147e4dca196d74d0cb913daa32ad63a2c1f48d996bf2c352b5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.1"
+  rx_notifier_annotation:
+    dependency: transitive
+    description:
+      name: rx_notifier_annotation
+      sha256: "362496563d617aa6fa21ab9c131f66348f3266b6580d69ecc23d2c23a52070a2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -168,6 +280,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  triple:
+    dependency: transitive
+    description:
+      name: triple
+      sha256: "1f168ec9234c1e6f80f27f7cc3affee601181ad0573d3e6286e52fbee80e364c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
+  typed_data:
+    dependency: transitive
+    description:
+      name: typed_data
+      sha256: "26f87ade979c47a150c9eaab93ccd2bebe70a27dc0b4b29517f2904f04eb11a5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.3.1"
   vector_math:
     dependency: transitive
     description:
@@ -176,5 +304,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  woocommerce_api:
+    dependency: "direct main"
+    description:
+      name: woocommerce_api
+      sha256: beaf62b549448767929167b9df5285fe2d04576f1b3fb151eb82d92c7cd66b56
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
 sdks:
   dart: ">=2.19.6 <3.0.0"

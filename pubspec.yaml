@@ -7,6 +7,13 @@ environment:
   sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
+  circular_bottom_navigation: ^2.3.0
+  mobx_triple: any
+  flutter_mobx: any
+  flutter_triple: ^2.0.0
+  mobx: ^2.0.7+7
+  woocommerce_api: ^0.1.0
+  flutter_modular: ^5.0.3
   flutter:
     sdk: flutter
 
