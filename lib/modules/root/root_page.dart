@@ -1,11 +1,11 @@
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:cttns/modules/account/account_page.dart';
-import 'package:cttns/modules/cart/cart_page.dart';
 import 'package:cttns/modules/home/home_page.dart';
 import 'package:cttns/modules/post/post_page.dart';
 import 'package:cttns/modules/product/product_page.dart';
 import 'package:cttns/modules/whislist/WhisListPage.dart';
+import 'package:cttns/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class RootPage extends StatefulWidget {
@@ -20,22 +20,20 @@ class _RootPageState extends State<RootPage> {
     const HomePage(),
     const WhisList(),
     const ProductPage(),
-    const CartPage(),
     const AccountPage(),
     const PostPage(),
   ];
   int currentIndex = 0;
   List<TabItem> tabItems = List.of([
-    TabItem(Icons.home, "Home", Colors.blue,
+    TabItem(Icons.home, "Trang chủ", Colors.blue,
         labelStyle: const TextStyle(fontWeight: FontWeight.normal)),
-    TabItem(Icons.favorite, "Whis", Colors.red,
+    TabItem(Icons.favorite, "Yêu thích", Colors.red,
         labelStyle:
             const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold)),
-    TabItem(Icons.dashboard_rounded, "Products", Colors.orange,
+    TabItem(Icons.dashboard_rounded, "Sản phẩm", Colors.orange,
         labelStyle:
             const TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
-    TabItem(Icons.store, "Cart", Colors.cyan),
-    TabItem(Icons.person_pin, "Account", Colors.cyan),
+    TabItem(Icons.person_pin, "Tài khoản", Colors.cyan),
   ]);
   late CircularBottomNavigationController _navigationController;
   @override
@@ -48,7 +46,10 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_navigationController.value ?? 0],
+      backgroundColor: AppColors.background,
+      body: SafeArea(
+        child: pages[_navigationController.value ?? 0],
+      ),
       bottomNavigationBar: CircularBottomNavigation(
         tabItems,
         barBackgroundColor: const Color(0xffFFFFFF),

@@ -1,4 +1,4 @@
-[11:38:02 AM]: Spawning D:\flutter\flutter\bin\flutter.bat with args ["run","--machine","--start-paused","-d","emulator-5554","--devtools-server-address","http://127.0.0.1:9101/","--target","lib\\main.dart"]
-[11:38:02 AM]: ..  in D:\workspace\flutter\cttns\cttns
-[11:38:02 AM]: ..  with {"toolEnv":{"FLUTTER_HOST":"VSCode","PUB_ENVIRONMENT":"vscode.dart-code"}}
-[11:38:02 AM]: PID: 3636
+[11:28:31 PM]: Spawning D:\flutter\flutter\bin\flutter.bat with args ["run","--machine","--start-paused","-d","emulator-5554","--devtools-server-address","http://127.0.0.1:9100/","--target","lib\\main.dart"]
+[11:28:31 PM]: ..  in D:\workspace\flutter\cttns\cttns
+[11:28:31 PM]: ..  with {"toolEnv":{"FLUTTER_HOST":"VSCode","PUB_ENVIRONMENT":"vscode.dart-code"}}
+[11:28:31 PM]: PID: 15760
