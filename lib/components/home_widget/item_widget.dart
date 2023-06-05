@@ -9,8 +9,6 @@ class ItemsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-        // childAspectRatio: 0.68,
-        // crossAxisCount: 2,
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
@@ -20,6 +18,10 @@ class ItemsWidget extends StatelessWidget {
             mainAxisSpacing: 16),
         itemCount: products!.length,
         itemBuilder: (BuildContext context, int index) {
+          String priceProduct = products![index].price!.toInt().toString();
+          priceProduct = priceProduct.replaceAllMapped(
+              RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.');
+          priceProduct += ' đ';
           return Container(
             padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
             margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
@@ -35,9 +37,9 @@ class ItemsWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: AppColors.foreground,
                           borderRadius: BorderRadius.circular(20)),
-                      child: const Text(
-                        "-50%",
-                        style: TextStyle(
+                      child: Text(
+                        "${(((products![index].price! - products![index].regularPrice!) / products![index].regularPrice!) * 100).toStringAsFixed(0)}%",
+                        style: const TextStyle(
                             fontSize: 14,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
@@ -55,11 +57,17 @@ class ItemsWidget extends StatelessWidget {
                   },
                   child: Container(
                     margin: const EdgeInsets.all(10),
-                    child: Image.asset(
-                      "assets/images/1.png",
-                      height: 120,
-                      width: 120,
-                    ),
+                    child: products![index].images.isNotEmpty
+                        ? Image.network(
+                            products![index].images[0].src,
+                            height: 120,
+                            width: 120,
+                          )
+                        : Image.asset(
+                            "assets/images/1.png",
+                            height: 120,
+                            width: 120,
+                          ),
                   ),
                 ),
                 Container(
@@ -76,13 +84,12 @@ class ItemsWidget extends StatelessWidget {
                 ),
                 // Container(
                 //     alignment: Alignment.centerLeft,
-                //     child: Html(
-                //       data: products![index].description,
-                //       style: {
-                //         "p": Style(
-                //             fontSize: const FontSize(16),
-                //             color: AppColors.foregroundDark)
-                //       },
+                //     child: HtmlWidget(
+                //       products![index].shortDescription,
+                //       textStyle: const TextStyle(
+                //         overflow: TextOverflow.ellipsis,
+                //         fontSize: 12,
+                //       ),
                 //     )),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
@@ -90,8 +97,9 @@ class ItemsWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        products![0].price.toString(),
+                        priceProduct,
                         style: TextStyle(
+                          overflow: TextOverflow.ellipsis,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           color: AppColors.foreground,

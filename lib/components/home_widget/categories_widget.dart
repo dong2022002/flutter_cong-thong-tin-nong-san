@@ -1,23 +1,24 @@
+import 'package:cttns/models/product.dart';
 import 'package:cttns/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesWidget extends StatelessWidget {
-  const CategoriesWidget({super.key});
-
+  const CategoriesWidget({super.key, required this.listCategories});
+  final List<ProductCategory> listCategories;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          for (int i = 1; i < 8; i++)
+          for (int i = 1; i < listCategories.length - 1; i++)
             Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 padding:
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,7 +29,7 @@ class CategoriesWidget extends StatelessWidget {
                       height: 40,
                     ),
                     Text(
-                      "Rau thủy canh",
+                      listCategories[i].name,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 17,

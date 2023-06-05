@@ -1,20 +1,20 @@
 import 'package:cttns/models/product.dart';
 
-abstract class HomeState {
+abstract class ProductState {
   List<Product> products;
   List<ProductCategory> categories;
-  HomeState({
+  ProductState({
     required this.products,
     required this.categories,
   });
 }
 
-class HomeInitState extends HomeState {
-  HomeInitState() : super(categories: [], products: []);
+class ProductInitState extends ProductState {
+  ProductInitState() : super(categories: [], products: []);
 }
 
-class HomeDataState extends HomeState {
-  HomeDataState({
+class ProductDataState extends ProductState {
+  ProductDataState({
     required List<Product> productList,
     required List<ProductCategory> categoryList,
   }) : super(categories: categoryList, products: productList);

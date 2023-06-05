@@ -311,13 +311,43 @@ class Categories {
     required this.slug,
   });
   late final int id;
-  late final String? name;
+  late final String name;
   late final String? slug;
 
   Categories.fromJson(Map<String?, dynamic> json) {
     id = json['id'];
     name = json['name'];
     slug = json['slug'];
+  }
+
+  Map<String?, dynamic> toJson() {
+    final _data = <String?, dynamic>{};
+    _data['id'] = id;
+    _data['name'] = name;
+    _data['slug'] = slug;
+    return _data;
+  }
+}
+
+class ProductCategory {
+  ProductCategory({
+    required this.id,
+    required this.name,
+    required this.slug,
+    required this.image,
+  });
+  late final int id;
+  late final String name;
+  late final String? slug;
+  late final Images? image;
+
+  ProductCategory.fromJson(Map<String?, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    slug = json['slug'];
+    if (json['image'] != null) {
+      image = Images.fromJson(json['image']);
+    }
   }
 
   Map<String?, dynamic> toJson() {
@@ -349,7 +379,7 @@ class Images {
   late final String name;
   late final String alt;
 
-  Images.fromJson(Map<String, dynamic> json) {
+  Images.fromJson(Map<String?, dynamic> json) {
     id = json['id'];
     dateCreated = json['date_created'];
     dateCreatedGmt = json['date_created_gmt'];

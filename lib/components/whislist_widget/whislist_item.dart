@@ -55,12 +55,12 @@ class WhislistItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 5),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
+                        children: [
                           Icon(
                             Icons.delete,
                             color: Colors.red,

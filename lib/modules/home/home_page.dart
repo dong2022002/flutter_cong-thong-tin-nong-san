@@ -70,8 +70,10 @@ class _HomePageState extends State<HomePage> {
                     ]),
                   ),
                   tittleText("Danh mục"),
-                  const CategoriesWidget(),
-                  tittleText("Giá tốt nhất"),
+                  CategoriesWidget(
+                    listCategories: state.categories,
+                  ),
+                  tittleText("Hàng nổi bật"),
                   ItemsWidget(
                     products: state.products,
                   )
