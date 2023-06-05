@@ -1,12 +1,15 @@
 import 'package:cttns/modules/cart/cart_page.dart';
+import 'package:cttns/modules/global_store.dart';
 import 'package:cttns/modules/product/detail_products.dart';
 import 'package:cttns/modules/root/root_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:http/http.dart' as http;
 
 class AppModule extends Module {
   @override
   final List<Bind> binds = [
-    // Bind.instance<http.Client>(http.Client()),
+    Bind.instance<http.Client>(http.Client()),
+    Bind.singleton((i) => GlobalStore()),
   ];
   @override
   final List<ModularRoute> routes = [

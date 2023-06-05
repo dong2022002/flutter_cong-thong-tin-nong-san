@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
-      title: 'Universe Store',
+      title: 'Cổng thông tin nông sản',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

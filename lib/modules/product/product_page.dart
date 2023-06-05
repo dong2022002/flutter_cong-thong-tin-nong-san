@@ -63,7 +63,9 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(vertical: 16),
-                      child: ItemsWidget(),
+                      child: ItemsWidget(
+                        products: [],
+                      ),
                     )
                   ],
                 )),
