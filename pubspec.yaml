@@ -20,6 +20,9 @@ dependencies:
   crypto: ^3.0.3
   http: ^1.0.0
   flutter_widget_from_html_core: ^0.10.1
+  shared_preferences: ^2.1.1
+
+  expandable: ^5.0.1
   flutter:
     sdk: flutter
 

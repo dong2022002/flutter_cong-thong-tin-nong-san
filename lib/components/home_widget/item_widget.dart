@@ -53,7 +53,8 @@ class ItemsWidget extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Modular.to.pushNamed('/detailProduct');
+                    Modular.to.pushNamed('/detailProduct',
+                        arguments: products![index]);
                   },
                   child: Container(
                     margin: const EdgeInsets.all(10),

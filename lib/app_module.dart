@@ -1,3 +1,4 @@
+import 'package:cttns/models/product.dart';
 import 'package:cttns/modules/cart/cart_page.dart';
 import 'package:cttns/modules/global_store.dart';
 import 'package:cttns/modules/product/detail_products.dart';
@@ -15,13 +16,9 @@ class AppModule extends Module {
   final List<ModularRoute> routes = [
     ChildRoute(Modular.initialRoute, child: (_, __) => const RootPage()),
     ChildRoute('/cart', child: (_, args) => const CartPage()),
-    ChildRoute('/detailProduct', child: (_, args) => const DetailProductPage()),
-    // ChildRoute(Modular.initialRoute, child: (_, __) => const SignInPage()),
-    // ChildRoute('/root', child: (_, args) => const RootPage()),
-    // ChildRoute('/signup', child: (_, args) => const SignUpPage()),
-    // ChildRoute('/detail',
-    //     child: (_, args) => ProductDetailPage(
-    //           product: args.data as Product,
-    //         )),
+    ChildRoute('/detailProduct',
+        child: (_, args) => DetailProductPage(
+              product: args.data as Product,
+            )),
   ];
 }

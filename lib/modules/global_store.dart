@@ -1,4 +1,6 @@
+import 'package:cttns/models/login_user.dart';
 import 'package:cttns/models/product.dart';
+import 'package:cttns/models/user.dart';
 import 'package:mobx/mobx.dart';
 
 part 'global_store.g.dart';
@@ -10,4 +12,8 @@ class GlobalStore = _GlobalStore with _$GlobalStore;
 abstract class _GlobalStore with Store {
   @observable
   ObservableList<Product> products = ObservableList<Product>();
+  @observable
+  WPUser? currentUser;
+  @observable
+  Customer? currentCustomer;
 }

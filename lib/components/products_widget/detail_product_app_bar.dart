@@ -25,7 +25,7 @@ class DetailProductAppBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Text(
-              "Product",
+              "Chi tiết sản phẩm",
               style: TextStyle(
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
@@ -33,11 +33,11 @@ class DetailProductAppBar extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const Icon(
-            Icons.favorite,
-            size: 30,
-            color: Colors.red,
-          )
+          // const Icon(
+          //   Icons.favorite,
+          //   size: 30,
+          //   color: Colors.red,
+          // )
         ],
       ),
     );
