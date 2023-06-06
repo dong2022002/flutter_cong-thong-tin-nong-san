@@ -1,3 +1,4 @@
+import 'package:cttns/components/account_widget/formal_button.dart';
 import 'package:cttns/modules/account/account_state.dart';
 import 'package:cttns/modules/account/account_store.dart';
 import 'package:flutter/material.dart';
@@ -35,16 +36,16 @@ class _AccountPageState extends State<AccountPage> {
                   backgroundImage: AssetImage('assets/images/avatar.png'),
                 ),
                 const SizedBox(height: 16.0),
-                const Text(
-                  'John Doe',
-                  style: TextStyle(
+                Text(
+                  state.currentUser!.lastName,
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 8.0),
                 const Text(
-                  'Software Engineer',
+                  'Khách hàng',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.grey,
@@ -73,6 +74,27 @@ class _AccountPageState extends State<AccountPage> {
                       },
                     ),
                   ],
+                ),
+                Text('${state.currentUser?.email}'),
+                FormalButton(
+                  label: "Đơn hàng",
+                  onPress: () {},
+                ),
+                FormalButton(
+                  label: "Lưu trữ",
+                  onPress: () {},
+                ),
+                FormalButton(
+                  label: "địa chỉ",
+                  onPress: () {},
+                ),
+                FormalButton(
+                  label: "Thông tin chi tiết",
+                  onPress: () {},
+                ),
+                FormalButton(
+                  label: "Đăng xuất",
+                  onPress: () {},
                 ),
               ],
             ),

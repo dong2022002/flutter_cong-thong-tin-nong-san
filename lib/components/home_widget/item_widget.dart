@@ -13,7 +13,7 @@ class ItemsWidget extends StatelessWidget {
         shrinkWrap: true,
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200,
-            childAspectRatio: 0.68,
+            childAspectRatio: 0.8,
             crossAxisSpacing: 2,
             mainAxisSpacing: 16),
         itemCount: products!.length,
@@ -23,8 +23,8 @@ class ItemsWidget extends StatelessWidget {
               RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.');
           priceProduct += ' đ';
           return Container(
-            padding: const EdgeInsets.only(left: 15, right: 15, top: 10),
-            margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            padding: const EdgeInsets.only(left: 12, right: 12, top: 10),
+            margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(20)),
             child: Column(
@@ -57,12 +57,12 @@ class ItemsWidget extends StatelessWidget {
                         arguments: products![index]);
                   },
                   child: Container(
-                    margin: const EdgeInsets.all(10),
+                    // margin: const EdgeInsets.all(10),
                     child: products![index].images.isNotEmpty
                         ? Image.network(
                             products![index].images[0].src,
                             height: 120,
-                            width: 120,
+                            width: 200,
                           )
                         : Image.asset(
                             "assets/images/1.png",
@@ -72,11 +72,13 @@ class ItemsWidget extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.only(bottom: 8),
+                  padding: const EdgeInsets.only(bottom: 8, top: 4),
                   alignment: Alignment.centerLeft,
                   child: Text(
                     products![index].name,
+                    maxLines: 2,
                     style: TextStyle(
+                      overflow: TextOverflow.ellipsis,
                       fontSize: 18,
                       color: AppColors.foreground,
                       fontWeight: FontWeight.bold,
@@ -92,8 +94,9 @@ class ItemsWidget extends StatelessWidget {
                 //         fontSize: 12,
                 //       ),
                 //     )),
+                Spacer(),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 4),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -112,7 +115,7 @@ class ItemsWidget extends StatelessWidget {
                       )
                     ],
                   ),
-                )
+                ),
               ],
             ),
           );

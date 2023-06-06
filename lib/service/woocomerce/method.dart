@@ -34,6 +34,44 @@ class MethodApi {
     }
     return [];
   }
+
+  static Future<dynamic> postApi(
+      String url, dynamic data, Function(Map<String, dynamic>) onError) async {
+    Map<String, dynamic>? rs;
+    String consumerKey = Woo.consumerKey;
+    String consumerSecret = Woo.consumerSecret;
+
+    Map<String, String> parameters = {
+      'oauth_consumer_key': consumerKey,
+      'oauth_nonce': generateNonce(),
+      'oauth_signature_method': 'HMAC-SHA1',
+      'oauth_timestamp': generateTimestamp(),
+      'oauth_version': '1.0'
+    };
+    String signature =
+        generateOAuthSignature('POST', url, parameters, consumerSecret);
+    parameters['oauth_signature'] = signature;
+    final encodedParams = Uri(queryParameters: parameters).query;
+
+    final requestUrl = '$url?$encodedParams';
+    try {
+      final response = await http.post(
+        Uri.parse(requestUrl),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: jsonEncode(data),
+      );
+      if (response.statusCode == 201) {
+        rs = json.decode(response.body);
+      } else {
+        onError(json.decode(response.body));
+      }
+    } catch (e) {
+      print("Error post api:$e");
+    }
+    return rs;
+  }
 }
 
 String generateNonce() {

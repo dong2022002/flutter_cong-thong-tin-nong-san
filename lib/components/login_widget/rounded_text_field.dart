@@ -1,7 +1,5 @@
+import 'package:cttns/values/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import '../values/colors.dart';
 
 class RoundedTextField extends StatelessWidget {
   const RoundedTextField({
@@ -24,13 +22,13 @@ class RoundedTextField extends StatelessWidget {
       controller: controller,
       style: const TextStyle(fontSize: 18),
       decoration: InputDecoration(
-          fillColor: AppColors.foreground,
+          // fillColor: AppColors.foreground.withOpacity(.8),
           hintText: hintText,
           filled: true,
-          contentPadding: const EdgeInsets.all(24),
+          contentPadding: const EdgeInsets.all(20),
           border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(90))),
+              borderSide: BorderSide(color: AppColors.foreground),
+              borderRadius: BorderRadius.circular(8))),
     );
   }
 }

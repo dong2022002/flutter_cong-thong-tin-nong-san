@@ -121,7 +121,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
                                   top: 12, left: 12, bottom: 12, right: 12),
                               child: ExpandablePanel(
                                   header: const Text(
-                                    'Materials',
+                                    'Mô tả',
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,
@@ -134,7 +134,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
                                     _product.description,
                                     textStyle: const TextStyle(
                                       overflow: TextOverflow.ellipsis,
-                                      fontSize: 12,
+                                      fontSize: 14.5,
                                     ),
                                   )),
                             ),
@@ -143,7 +143,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
                                   top: 12, left: 12, bottom: 12, right: 12),
                               child: ExpandablePanel(
                                   header: const Text(
-                                    'Demensions',
+                                    'Kích thước',
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 18,
@@ -180,73 +180,6 @@ class _DetailProductPageState extends State<DetailProductPage> {
                                   // hasIcon: true,
                                   ),
                             ),
-                            // Padding(
-                            //   padding: const EdgeInsets.all(32),
-                            //   child: Row(
-                            //     mainAxisAlignment:
-                            //         MainAxisAlignment.spaceBetween,
-                            //     children: [
-                            //       ElevatedButton(
-                            //           onPressed: () {
-                            //             // GlobalStore globalStore = Modular.get<GlobalStore>();
-                            //             // globalStore.addCart(_product.id, _product);
-                            //             // const AdvanceSnackBar(
-                            //             //         message: "Product added successfully",
-                            //             //         bgColor: Colors.blueAccent,
-                            //             //         duration:  Duration(microseconds: 500))
-                            //             //     .show(context);
-                            //           },
-                            //           style: ButtonStyle(
-                            //               backgroundColor:
-                            //                   MaterialStateProperty.all<Color>(
-                            //                       Colors.white),
-                            //               shape: MaterialStateProperty.all<
-                            //                       RoundedRectangleBorder>(
-                            //                   RoundedRectangleBorder(
-                            //                 side: BorderSide(
-                            //                     color: AppColors.foreground,
-                            //                     width: 2),
-                            //                 borderRadius:
-                            //                     BorderRadius.circular(90.0),
-                            //               ))),
-                            //           child: Padding(
-                            //             padding: const EdgeInsets.all(16.0),
-                            //             child: Text(
-                            //               'Thêm vào giỏ',
-                            //               style: TextStyle(
-                            //                 color: AppColors.foreground,
-                            //                 fontSize: 18,
-                            //               ),
-                            //             ),
-                            //           )),
-                            //       ElevatedButton(
-                            //           onPressed: () {},
-                            //           style: ButtonStyle(
-                            //               backgroundColor:
-                            //                   MaterialStateProperty.all<Color>(
-                            //                       AppColors.foreground),
-                            //               shape: MaterialStateProperty.all<
-                            //                       RoundedRectangleBorder>(
-                            //                   RoundedRectangleBorder(
-                            //                 side: BorderSide(
-                            //                     color: AppColors.foreground,
-                            //                     width: 2),
-                            //                 borderRadius:
-                            //                     BorderRadius.circular(90.0),
-                            //               ))),
-                            //           child: const Padding(
-                            //             padding: EdgeInsets.all(16.0),
-                            //             child: Text(
-                            //               'Mua ngay',
-                            //               style: TextStyle(
-                            //                 color: Colors.white,
-                            //                 fontSize: 18,
-                            //               ),
-                            //             ),
-                            //           )),
-                            //     ],
-                            //   ),
-                            // ),
                             const SizedBox(
                               height: 72,
                             )
@@ -261,7 +194,7 @@ class _DetailProductPageState extends State<DetailProductPage> {
           )
         ],
       ),
-      bottomNavigationBar: const DetailProductBottomNavbar(),
+      bottomNavigationBar: DetailProductBottomNavbar(price: priceProduct),
     );
   }
 }

@@ -58,7 +58,7 @@ class _ProductPageState extends State<ProductPage> {
                                       color: AppColors.foreground,
                                     ),
                                     label: Text(
-                                      "Filter",
+                                      "Lọc",
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: AppColors.foreground,

@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:cttns/models/login_user.dart';
+import 'package:cttns/modules/global_store.dart';
 import 'package:cttns/service/auth/auth_service.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx_triple/mobx_triple.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,10 +11,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'sign_in_state.dart';
 
 class SignInStore extends MobXStore<SignInModel> {
-  SignInStore() : super(SignInInitState());
-
+  SignInStore(this.goToAccountPage) : super(SignInInitState());
+  final VoidCallback goToAccountPage;
   final AuthService _authService = AuthService();
-
+  final GlobalStore _globalStore = Modular.get<GlobalStore>();
   Future signIn() async {
     setLoading(true);
     LoginUser loginUser = LoginUser(
@@ -25,7 +27,7 @@ class SignInStore extends MobXStore<SignInModel> {
     });
     if (error != null) {
       setLoading(false);
-      setError(Exception(error!["message"]));
+      // setError(error!["message"]);/
       return {};
     }
 
@@ -33,7 +35,9 @@ class SignInStore extends MobXStore<SignInModel> {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("currentUser", json.encode(wpUser));
-    Modular.to.pushNamedAndRemoveUntil("/root", (p0) => false);
+    _globalStore.currentUser = wpUser;
+    _globalStore.isLogin = true;
+    goToAccountPage();
     setLoading(false);
     return {};
   }

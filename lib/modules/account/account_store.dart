@@ -6,6 +6,7 @@ import 'package:mobx_triple/mobx_triple.dart';
 
 class AccountStore extends MobXStore<AccountState> {
   AccountStore() : super(AcocuntInitState());
+
   final WooService _wooService = WooService();
   GlobalStore globalStore = Modular.get<GlobalStore>();
   Future gets() async {
@@ -14,5 +15,9 @@ class AccountStore extends MobXStore<AccountState> {
         currentUser: globalStore.currentUser));
 
     return {};
+  }
+
+  logout() async {
+    globalStore.isLogin = false;
   }
 }

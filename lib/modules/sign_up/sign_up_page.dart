@@ -7,14 +7,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
-
+  const SignUpPage(
+      {super.key, required this.onPress, required this.goToAccountPage});
+  final VoidCallback onPress;
+  final VoidCallback goToAccountPage;
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  final store = SignupStore();
+  late var store;
+  @override
+  void initState() {
+    super.initState();
+    store = SignupStore(widget.goToAccountPage);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,49 +38,46 @@ class _SignUpPageState extends State<SignUpPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
-                    height: 100,
+                    height: 50,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 12),
-                    child: Text(
-                      'Create new  Account!',
-                      style: TextStyle(
-                          fontSize: 24,
-                          color: AppColors.foreground,
-                          fontWeight: FontWeight.w500),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Text(
+                        'Đăng ký',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 28,
+                            color: AppColors.foreground,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
                   ),
-                  Text(
-                    'Please fill in the form to continue',
-                    style: TextStyle(
-                        fontSize: 14, color: AppColors.foregroundDark),
-                  ),
+                  // Text(
+                  //   'Please fill in the form to continue',
+                  //   style: TextStyle(
+                  //       fontSize: 14, color: AppColors.foregroundDark),
+                  // ),
                   Padding(
                     padding: const EdgeInsets.only(top: 42, bottom: 8),
                     child: RoundedTextField(
                       controller: state.fnController,
-                      hintText: 'First name',
+                      hintText: 'Tên đăng nhập',
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8, bottom: 8),
                     child: RoundedTextField(
                       controller: state.lnController,
-                      hintText: 'Last name',
+                      hintText: 'Tên khách hàng',
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8, bottom: 8),
                     child: RoundedTextField(
                       controller: state.emailController,
-                      hintText: 'Email Address',
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: RoundedTextField(
-                      controller: state.pwdController,
-                      hintText: 'Password',
+                      hintText: 'Địa chỉ email',
                     ),
                   ),
                   Padding(
@@ -81,13 +85,21 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: RoundedTextField(
                       controller: state.pwdController,
                       password: true,
-                      hintText: 'Confirm Password',
+                      hintText: 'Mật khẩu',
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: RoundedTextField(
+                      controller: state.confirmPwdController,
+                      password: true,
+                      hintText: 'Mật khẩu xác nhận',
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 12),
                     child:
-                        RoundedButton(onPress: store.signUp, label: 'Sign Up'),
+                        RoundedButton(onPress: store.signUp, label: 'Đăng Ký'),
                   ),
                   // Padding(
                   //   padding: const EdgeInsets.symmetric(vertical: 8),
@@ -97,13 +109,11 @@ class _SignUpPageState extends State<SignUpPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Text('You already have an account?'),
+                      const Text('Bạn đã có tài khoản?'),
                       TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
+                        onPressed: widget.onPress,
                         child: Text(
-                          'Sign in',
+                          'Đăng nhập',
                           style: TextStyle(color: AppColors.foreground),
                         ),
                       ),

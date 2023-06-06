@@ -1,24 +1,35 @@
+import 'package:cttns/components/login_widget/rounded_button.dart';
+import 'package:cttns/components/login_widget/rounded_text_field.dart';
+import 'package:cttns/modules/sign_in/sign_in_store.dart';
+import 'package:cttns/values/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
 import 'sign_in_state.dart';
 
 class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
-
+  const SignInPage(
+      {super.key, required this.onPress, required this.goToAccount});
+  final VoidCallback onPress;
+  final VoidCallback goToAccount;
   @override
   State<SignInPage> createState() => _SignInPageState();
 }
 
 class _SignInPageState extends State<SignInPage> {
-  final store = SignInStore();
+  late var store;
+
+  @override
+  void initState() {
+    super.initState();
+    store = SignInStore(widget.goToAccount);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: ScopedBuilder<SignInStore, Exception, SignInModel>(
+      body: ScopedBuilder<SignInStore, SignInModel>(
         store: store,
         onState: (context, state) {
           return Container(
@@ -31,26 +42,29 @@ class _SignInPageState extends State<SignInPage> {
                   const SizedBox(
                     height: 100,
                   ),
-                  Text(
-                    'Welcome Back!',
-                    style:
-                        TextStyle(fontSize: 20, color: AppColors.secondaryText),
-                  ),
+                  // Text(
+                  //   'Welcome',
+                  //   style: TextStyle(fontSize: 20, color: AppColors.foreground),
+                  // ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 12),
-                    child: Text(
-                      'Please sign in to your \naccount',
-                      style: TextStyle(
-                          fontSize: 24,
-                          color: AppColors.primaryText,
-                          fontWeight: FontWeight.w500),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Text(
+                        'Đăng nhập',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 32,
+                            color: AppColors.foreground,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 42, bottom: 8),
                     child: RoundedTextField(
                       controller: state.usernameController,
-                      hintText: 'Username',
+                      hintText: 'Tài khoản',
                     ),
                   ),
                   Padding(
@@ -58,38 +72,39 @@ class _SignInPageState extends State<SignInPage> {
                     child: RoundedTextField(
                       controller: state.pwdController,
                       password: true,
-                      hintText: 'Password',
+                      hintText: 'Mật khẩu',
                     ),
                   ),
                   TextButton(
                     onPressed: store.forgetPassword,
                     child: Text(
-                      'Forget Password?',
-                      style: TextStyle(color: AppColors.primaryText),
+                      'Quên mật khẩu?',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: AppColors.foreground,
+                      ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    child:
-                        RoundedButton(onPress: store.signIn, label: 'Sign In'),
+                    padding: const EdgeInsets.symmetric(vertical: 4),
+                    child: RoundedButton(
+                        onPress: store.signIn, label: 'Đăng nhập'),
                   ),
                   // Padding(
                   //   padding: const EdgeInsets.symmetric(vertical: 8),
                   //   child: RoundedButton(
                   //       onPress: store.signInWithGoogle,
-                  //       label: 'Sign In with Google'),
+                  //       label: 'Đăng nhập với Google'),
                   // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Text('Don\'t have an account?'),
+                      const Text('Bạn chưa có tài khoản ?'),
                       TextButton(
-                        onPressed: () {
-                          Modular.to.pushNamed("/signup");
-                        },
+                        onPressed: widget.onPress,
                         child: Text(
-                          'Sign Up',
-                          style: TextStyle(color: AppColors.primaryButton),
+                          'Đăng ký',
+                          style: TextStyle(color: AppColors.foregroundDark),
                         ),
                       ),
                     ],

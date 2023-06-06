@@ -1,10 +1,7 @@
 // ignore_for_file: sort_child_properties_last
 
+import 'package:cttns/values/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
-import '../values/colors.dart';
 
 class RoundedButton extends StatelessWidget {
   const RoundedButton({
@@ -24,7 +21,7 @@ class RoundedButton extends StatelessWidget {
             onPress();
           },
           child: Padding(
-            padding:  const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Text(
               label,
               style: const TextStyle(
@@ -35,7 +32,7 @@ class RoundedButton extends StatelessWidget {
           ),
           style: ButtonStyle(
               backgroundColor:
-                  MaterialStateProperty.all<Color>(AppColors.primaryButton),
+                  MaterialStateProperty.all<Color>(AppColors.foreground),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(90.0),

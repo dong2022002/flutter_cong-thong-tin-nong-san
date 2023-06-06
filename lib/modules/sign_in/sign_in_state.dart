@@ -6,9 +6,7 @@ abstract class SignInModel {
   WPUser? currentUser;
   TextEditingController usernameController = TextEditingController();
   TextEditingController pwdController = TextEditingController();
-
   bool signInSuccess = false;
-
   SignInModel({this.currentUser, this.signInSuccess = false});
 }
 

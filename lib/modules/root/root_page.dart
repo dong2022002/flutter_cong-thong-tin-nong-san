@@ -1,12 +1,16 @@
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
 import 'package:cttns/modules/account/account_page.dart';
+import 'package:cttns/modules/global_store.dart';
 import 'package:cttns/modules/home/home_page.dart';
 import 'package:cttns/modules/post/post_page.dart';
 import 'package:cttns/modules/product/product_page.dart';
+import 'package:cttns/modules/sign_in/sign_in_page.dart';
+import 'package:cttns/modules/sign_up/sign_up_page.dart';
 import 'package:cttns/modules/whislist/WhisListPage.dart';
 import 'package:cttns/values/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class RootPage extends StatefulWidget {
   const RootPage({super.key});
@@ -16,17 +20,15 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  List<Widget> pages = [
-    const HomePage(),
-    const WhisList(),
-    const ProductPage(),
-    const AccountPage(),
-    const PostPage(),
-  ];
+  late VoidCallback goToSignUp;
+  late VoidCallback goToSignIn;
+  late VoidCallback goToAccountPage;
+  List<Widget> pages = [];
+
   int currentIndex = 0;
   List<TabItem> tabItems = List.of([
     TabItem(Icons.home, "Trang chủ", Colors.blue,
-        labelStyle: const TextStyle(fontWeight: FontWeight.normal)),
+        labelStyle: const TextStyle(fontWeight: FontWeight.bold)),
     TabItem(Icons.favorite, "Yêu thích", Colors.red,
         labelStyle:
             const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold)),
@@ -40,15 +42,47 @@ class _RootPageState extends State<RootPage> {
   void initState() {
     _navigationController = CircularBottomNavigationController(currentIndex);
     super.initState();
-    // GlobalStore globalStore = Modular.get<GlobalStore>();
+    goToSignUp = () {
+      setState(() {
+        currentIndex = 6;
+      });
+    };
+    goToSignIn = () {
+      setState(() {
+        currentIndex = 3;
+      });
+    };
+    goToAccountPage = () {
+      setState(() {
+        currentIndex = 5;
+      });
+    };
+
+    pages = [
+      const HomePage(),
+      const WhisList(),
+      const ProductPage(),
+      SignInPage(
+        onPress: goToSignUp,
+        goToAccount: goToAccountPage,
+      ),
+      const PostPage(),
+      const AccountPage(),
+      SignUpPage(
+        onPress: goToSignIn,
+        goToAccountPage: goToSignIn,
+      ),
+    ];
+    GlobalStore globalStore = Modular.get<GlobalStore>();
   }
 
   @override
   Widget build(BuildContext context) {
+    final GlobalStore _globalStore = Modular.get<GlobalStore>();
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
-        child: pages[_navigationController.value ?? 0],
+        child: pages[currentIndex],
       ),
       bottomNavigationBar: CircularBottomNavigation(
         tabItems,
@@ -57,7 +91,11 @@ class _RootPageState extends State<RootPage> {
         selectedPos: currentIndex,
         selectedCallback: (int? selectedPos) {
           setState(() {
-            currentIndex = selectedPos ?? 0;
+            if (_globalStore.isLogin && selectedPos == 3) {
+              currentIndex = 5;
+            } else {
+              currentIndex = selectedPos ?? 0;
+            }
           });
         },
       ),

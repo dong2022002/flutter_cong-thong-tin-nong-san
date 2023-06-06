@@ -25,10 +25,78 @@ mixin _$GlobalStore on _GlobalStore, Store {
     });
   }
 
+  late final _$currentUserAtom =
+      Atom(name: '_GlobalStore.currentUser', context: context);
+
+  @override
+  WPUser? get currentUser {
+    _$currentUserAtom.reportRead();
+    return super.currentUser;
+  }
+
+  @override
+  set currentUser(WPUser? value) {
+    _$currentUserAtom.reportWrite(value, super.currentUser, () {
+      super.currentUser = value;
+    });
+  }
+
+  late final _$currentCustomerAtom =
+      Atom(name: '_GlobalStore.currentCustomer', context: context);
+
+  @override
+  Customer? get currentCustomer {
+    _$currentCustomerAtom.reportRead();
+    return super.currentCustomer;
+  }
+
+  @override
+  set currentCustomer(Customer? value) {
+    _$currentCustomerAtom.reportWrite(value, super.currentCustomer, () {
+      super.currentCustomer = value;
+    });
+  }
+
+  late final _$listWishListAtom =
+      Atom(name: '_GlobalStore.listWishList', context: context);
+
+  @override
+  ObservableList<Wishlist>? get listWishList {
+    _$listWishListAtom.reportRead();
+    return super.listWishList;
+  }
+
+  @override
+  set listWishList(ObservableList<Wishlist>? value) {
+    _$listWishListAtom.reportWrite(value, super.listWishList, () {
+      super.listWishList = value;
+    });
+  }
+
+  late final _$isLoginAtom =
+      Atom(name: '_GlobalStore.isLogin', context: context);
+
+  @override
+  bool get isLogin {
+    _$isLoginAtom.reportRead();
+    return super.isLogin;
+  }
+
+  @override
+  set isLogin(bool value) {
+    _$isLoginAtom.reportWrite(value, super.isLogin, () {
+      super.isLogin = value;
+    });
+  }
+
   @override
   String toString() {
     return '''
-products: ${products}
+products: ${products},
+currentUser: ${currentUser},
+currentCustomer: ${currentCustomer},
+listWishList: ${listWishList},
+isLogin: ${isLogin}
     ''';
   }
 }
