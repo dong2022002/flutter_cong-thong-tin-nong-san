@@ -18,10 +18,13 @@ dependencies:
   clippy_flutter: ^2.0.0-nullsafety.1
   flutter_rating_bar: ^4.0.1
   crypto: ^3.0.3
-  http: ^1.0.0
+  http: ^0.13.6
   flutter_widget_from_html_core: ^0.10.1
   shared_preferences: ^2.1.1
-
+  webfeed: ^0.7.0
+  url_launcher: ^6.1.11
+  html: ^0.15.4
+  carousel_slider: ^4.2.1
   expandable: ^5.0.1
   flutter:
     sdk: flutter

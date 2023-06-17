@@ -7,7 +7,6 @@ import 'package:cttns/modules/post/post_page.dart';
 import 'package:cttns/modules/product/product_page.dart';
 import 'package:cttns/modules/sign_in/sign_in_page.dart';
 import 'package:cttns/modules/sign_up/sign_up_page.dart';
-import 'package:cttns/modules/whislist/WhisListPage.dart';
 import 'package:cttns/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -29,7 +28,7 @@ class _RootPageState extends State<RootPage> {
   List<TabItem> tabItems = List.of([
     TabItem(Icons.home, "Trang chủ", Colors.blue,
         labelStyle: const TextStyle(fontWeight: FontWeight.bold)),
-    TabItem(Icons.favorite, "Yêu thích", Colors.red,
+    TabItem(Icons.event_note, "Tin tức", Colors.red,
         labelStyle:
             const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold)),
     TabItem(Icons.dashboard_rounded, "Sản phẩm", Colors.orange,
@@ -60,7 +59,8 @@ class _RootPageState extends State<RootPage> {
 
     pages = [
       const HomePage(),
-      const WhisList(),
+      // const WhisList(),
+      const PostPage(),
       const ProductPage(),
       SignInPage(
         onPress: goToSignUp,
