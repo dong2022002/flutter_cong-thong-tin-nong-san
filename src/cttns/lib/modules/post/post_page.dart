@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' as parser;
+import 'package:url_launcher/url_launcher.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({super.key});
@@ -69,6 +70,11 @@ class _PostPageState extends State<PostPage> {
                               shrinkWrap: true,
                               itemCount: 20,
                               itemBuilder: (BuildContext context, int index) {
+                                void loadUrlSource() {
+                                  _launchURL(state
+                                      .feedSanVatDiaPhuong.items![index].link!);
+                                }
+
                                 return Padding(
                                   padding: const EdgeInsets.only(right: 16),
                                   child: ItemRssFeed(
@@ -81,6 +87,7 @@ class _PostPageState extends State<PostPage> {
                                     time: state.feedSanVatDiaPhuong
                                         .items![index].pubDate
                                         .toString(),
+                                    onPress: loadUrlSource,
                                   ),
                                 );
                               },
@@ -115,6 +122,11 @@ class _PostPageState extends State<PostPage> {
                               shrinkWrap: true,
                               itemCount: 20,
                               itemBuilder: (BuildContext context, int index) {
+                                void loadUrlSource() {
+                                  _launchURL(
+                                      state.feedThiTruong.items![index].link!);
+                                }
+
                                 return Padding(
                                   padding: const EdgeInsets.only(right: 16),
                                   child: ItemRssFeed(
@@ -127,6 +139,7 @@ class _PostPageState extends State<PostPage> {
                                     time: state
                                         .feedThiTruong.items![index].pubDate
                                         .toString(),
+                                    onPress: loadUrlSource,
                                   ),
                                 );
                               },
@@ -161,6 +174,11 @@ class _PostPageState extends State<PostPage> {
                               shrinkWrap: true,
                               itemCount: 20,
                               itemBuilder: (BuildContext context, int index) {
+                                void loadUrlSource() {
+                                  _launchURL(
+                                      state.feedNongNghiep.items![index].link!);
+                                }
+
                                 return Padding(
                                   padding: const EdgeInsets.only(right: 16),
                                   child: ItemRssFeed(
@@ -173,6 +191,7 @@ class _PostPageState extends State<PostPage> {
                                     time: state
                                         .feedNongNghiep.items![index].pubDate
                                         .toString(),
+                                    onPress: loadUrlSource,
                                   ),
                                 );
                               },
@@ -201,5 +220,15 @@ class _PostPageState extends State<PostPage> {
     // Extract the image URL
     String? imageUrl = imgElement!.attributes['src'];
     return imageUrl!;
+  }
+
+  _launchURL(String url) async {
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(
+        Uri.parse(url),
+      );
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

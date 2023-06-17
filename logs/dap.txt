@@ -1,0 +1,17 @@
+!! PLEASE REVIEW THIS LOG FOR SENSITIVE INFORMATION BEFORE SHARING !!
+
+Dart Code extension: 3.66.0
+Flutter extension: 3.66.0 (not activated)
+
+App: Visual Studio Code
+Version: 1.79.0
+Platform: win
+
+HTTP_PROXY: undefined
+NO_PROXY: undefined
+
+Logging Categories:
+    DAP
+
+Tue Jun 13 2023 [22:55:05 GMT+0700 (Indochina Time)] Log file started
+[11:06:43 PM] [General] [Warn] No program was set in launch config

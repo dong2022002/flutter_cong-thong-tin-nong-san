@@ -22,7 +22,7 @@ class HomeAppBar extends StatelessWidget {
             left: 20,
           ),
           child: Text(
-            "Trang chủ",
+            "Nông sản Lâm Đồng",
             style: TextStyle(
               fontSize: 23,
               fontWeight: FontWeight.bold,

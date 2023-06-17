@@ -26,7 +26,7 @@ class ItemsWidget extends StatelessWidget {
             padding: const EdgeInsets.only(left: 12, right: 12, top: 10),
             margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(20)),
+                color: Colors.white, borderRadius: BorderRadius.circular(8)),
             child: Column(
               children: [
                 Row(
